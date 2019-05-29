@@ -55,16 +55,19 @@
   new Vue({
     el: '#app',
     data: {
-      videoPercentage: "0.29"
+      videoPercentage: "0.29",
+      video: null,
     },
     mounted() {
       console.log('Starting application')
+      
+      this.video = document.querySelector("#video");
+      this.video.crossOrigin = "anonymous";
 
     },
     methods: {
       togglePlayVideo() {
-        video = document.querySelector("#video");
-        if(video.paused) {
+        if(this.video.paused) {
           document.querySelector("#video").play()
         } else {
           document.querySelector("#video").pause()
